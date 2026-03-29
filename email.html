@@ -1,0 +1,56 @@
+<html>
+<head>
+<script>
+function validateForm(){
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var phone = document.getElementById("phone").value;
+    var dob = document.getElementById("dob").value;
+    var namePattern = /^[A-Za-z]{3,}$/;
+    if(!namePattern.test(name)){
+        alert("Invalid name");
+        return false;
+    }
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailPattern.test(email)){
+        alert("Invalid email");
+        return false;
+    }
+    var passPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+    if(!passPattern.test(password)){
+        alert("Invalid password");
+        return false;
+    }
+    var phonePattern = /^[0-9]{10}$/;
+    if(!phonePattern.test(phone)){
+        alert("Invalid phone number");
+        return false;
+    }
+    if(dob == ""){
+        alert("Select DOB");
+        return false;
+    }
+    alert("Form submitted successfully!");
+    return true;
+}
+</script>
+</head>
+<body>
+<h1>Registration Form</h1>
+<form onsubmit="return validateForm()">
+Name:<br>
+<input type="text" id="name"><br><br>
+Email:<br>
+<input type="text" id="email"><br><br>
+Password:<br>
+<input type="password" id="password"><br><br>
+Phone Number:<br>
+<input type="text" id="phone"><br><br>
+Date of Birth:<br>
+<input type="date" id="dob"><br><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html> 
+
